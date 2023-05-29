@@ -7,9 +7,24 @@
 }
 
 :root{
+    --bg-dark: #1e272e;
+    --bg-light-blue: #0fbcf9;
+    --bg-white: #ffff;
     --border-radius: 15px;
 }
 
-.br-10{
+.br-15{
     border-radius: var(--border-radius);
+}
+.btn-col-black{
+    background: var(--bg-dark);
+}
+.txt-col-white{
+    color: var(--bg-white);
+}
+
+/* Hover Effect for button */
+.btn:hover{
+    background: var(--bg-light-blue);
+    color: var(--bg-white);
 }
