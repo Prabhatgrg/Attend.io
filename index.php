@@ -21,19 +21,15 @@
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" placeholder="admin123">
-                <label for="floatingInput">Username</label>
-            </div>
-            <div class="form-floating">
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
 
-            <button class="w-100 btn btn-lg btn-col-black txt-col-white br-10" type="submit">Register</button>
+            <button class="w-100 btn btn-lg btn-col-black txt-col-white br-10" type="submit">Sign in</button>
         </form>
         <div class="mt-3 register-container d-flex">
-            <p class="me-2">Already have a account?</p>
-            <a href="./index.html">Click here</a>
+            <p class="me-2">Don't have a account?</p>
+            <a href="./register.php">Click here</a>
         </div>
         <p class="mb-3 text-center">© 2023</p>
     </main>

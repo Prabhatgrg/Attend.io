@@ -14,22 +14,26 @@
 <body>
     <!-- Login Section -->
     <main class="form-signin d-flex flex-column align-items-center justify-content-center vh-100">
-        <form class="w-50 d-flex flex-column gap-3" method="get">
+        <form class="w-50 d-flex flex-column gap-3" action="./backend/register.php" method="post">
             <h1 class="h3 mb-3 fw-normal text-center">Attend.io</h1>
             <div class="form-floating">
                 <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" placeholder="admin123">
+                <label for="floatingInput">Username</label>
+            </div>
+            <div class="form-floating">
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
 
-            <button class="w-100 btn btn-lg btn-col-black txt-col-white br-10" type="submit">Sign in</button>
+            <button class="w-100 btn btn-lg btn-col-black txt-col-white br-10" type="submit">Register</button>
         </form>
         <div class="mt-3 register-container d-flex">
-            <p class="me-2">Don't have a account?</p>
-            <a href="./register.html">Click here</a>
+            <p class="me-2">Already have a account?</p>
+            <a href="./index.php">Click here</a>
         </div>
         <p class="mb-3 text-center">© 2023</p>
     </main>
