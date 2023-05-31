@@ -12,7 +12,4 @@ if (!$conn) {
 } else {
     echo '<script>alert("Successfully Connected")</script>';
 }
-// function connect_db()
-// {
-// }
 ?>
