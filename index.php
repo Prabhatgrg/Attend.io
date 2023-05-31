@@ -17,7 +17,7 @@
         <form class="w-50 d-flex flex-column gap-3" action="./backend/login.php" method="post">
             <h1 class="h3 mb-3 fw-normal text-center">Attend.io</h1>
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="username" name="username" required>
+                <input type="text" class="form-control" id="floatingInput" placeholder="username" name="username" required>
                 <label for="floatingInput">Username</label>
             </div>
             <div class="form-floating">
