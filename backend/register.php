@@ -2,9 +2,6 @@
 
 require_once('../database/config.php');
 
-// global $conn;
-// connect_db();
-
 // Check form submission
 if($_SERVER['REQUEST_METHOD']==='POST'){
     $email = $_POST['email'];
