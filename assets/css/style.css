@@ -16,7 +16,7 @@
 .br-15{
     border-radius: var(--border-radius);
 }
-.btn-col-black{
+.bg-black{
     background: var(--bg-dark);
 }
 .txt-col-white{

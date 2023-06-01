@@ -29,7 +29,7 @@
                 <label for="password">Password</label>
             </div>
 
-            <button class="w-100 btn btn-lg btn-col-black txt-col-white br-10" type="submit" name="submit">Register</button>
+            <button class="w-100 btn btn-lg bg-black txt-col-white br-10" type="submit" name="submit">Register</button>
         </form>
         <div class="mt-3 register-container d-flex">
             <p class="me-2">Already have a account?</p>

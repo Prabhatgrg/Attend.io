@@ -24,7 +24,7 @@
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
                 <label for="floatingPassword">Password</label>
             </div>
-            <button class="w-100 btn btn-lg btn-col-black txt-col-white br-10" type="submit">Sign in</button>
+            <button class="w-100 btn btn-lg bg-black txt-col-white br-10" type="submit">Sign in</button>
         </form>
         <div class="mt-3 register-container d-flex">
             <p class="me-2">Don't have a account?</p>
