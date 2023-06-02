@@ -17,14 +17,10 @@
       <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
         <span class="fs-4 text-white">Attend.io</span>
       </a>
-      <h1 class="text-center">Admin Dashboard</h1>
+      <h3 class="text-center">Admin Dashboard</h3>
 
       <ul class="nav nav-pills">
         <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Logout</a></li>
-        <!-- <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li> -->
       </ul>
     </header>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
