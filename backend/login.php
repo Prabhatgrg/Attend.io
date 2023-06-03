@@ -25,6 +25,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         if($row['username']==$username && $row['password']==$password){
             $_SESSION['id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
+            var_dump($query);
             header("Location: ../dashboard.php");
         }else{
             header("Location: ../index.php");
