@@ -22,11 +22,14 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 
     if(mysqli_num_rows($result) != 0){
         $row = mysqli_fetch_assoc($result);
+        print_r($row);
         if($row['username']==$username && $row['password']==$password){
             $_SESSION['id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
             var_dump($query);
-            header("Location: ../dashboard.php");
+            echo '<br>';
+            print_r($row);
+            // header("Location: ../dashboard.php");
         }else{
             header("Location: ../index.php");
         }
