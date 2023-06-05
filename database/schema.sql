@@ -4,3 +4,10 @@ CREATE TABLE IF NOT EXISTS admin(
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS students(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL, 
+    semester VARCHAR(10) NOT NULL,
+    status ENUM('present', 'absent', 'on_leave')
+);

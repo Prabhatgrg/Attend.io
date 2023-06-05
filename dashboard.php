@@ -24,9 +24,10 @@
       </ul>
     </header>
     <div class="form-control">
-      <form action="#" method="post" class="d-flex gap-4 justify-content-center">
+      <form action="#" method="post" class="d-flex gap-4 justify-content-center align-items-center">
         <div class="faculty">
           <label for="BCA">BCA</label>
+          <label for="semester">Semester</label>
           <select name="semester" id="semester">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -41,6 +42,7 @@
         <div class="info">
           <input type="text" placeholder="Student Name">
         </div>
+        <button type="submit" class="btn btn-dark" >Add</button>
       </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
