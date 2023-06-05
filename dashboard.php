@@ -23,6 +23,26 @@
         <li class="nav-item"><a href="./backend/logout.php" class="nav-link active" aria-current="page">Logout</a></li>
       </ul>
     </header>
+    <div class="form-control">
+      <form action="#" method="post" class="d-flex gap-4 justify-content-center">
+        <div class="faculty">
+          <label for="BCA">BCA</label>
+          <select name="semester" id="semester">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+          </select>
+        </div>
+        <div class="info">
+          <input type="text" placeholder="Student Name">
+        </div>
+      </form>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
