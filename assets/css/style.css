@@ -25,8 +25,9 @@
 
 /* Hover Effect for button */
 .btn:hover{
+    border: none;
     background: var(--bg-light-blue);
-    color: var(--bg-white);
+    color: white;
 }
 /* aside li:hover{
     background: var(--bg-light-blue);
