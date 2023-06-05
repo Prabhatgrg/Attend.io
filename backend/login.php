@@ -27,9 +27,10 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
             $_SESSION['id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
             header("Location: ../dashboard.php");
-        }else{
-            header("Location: ../index.php");
         }
+    }else{
+        // echo 'Info does not match';
+        header('Location: ../index.php');
     }
 }
 ?>
