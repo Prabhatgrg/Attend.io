@@ -160,6 +160,63 @@
     </tbody>
   </table>
 
+  <table class="table table-hover table-striped table-bordered table-dark text-center">
+    <h3 class="text-center">Date Goes Here</h3>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Semester</th>
+        <th scope="col">Status</th>
+        <th scope="col">Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td class=" ps-5 w-25">
+          <button class="btn bg-success">present</button>
+          <button class="btn bg-danger">absent</button>
+          <button class="btn bg-warning">on-leave</button>
+        </td>
+        <td class=" w-25">
+          <button class="btn bg-success">Edit</button>
+          <button class="btn bg-danger">Delete</button>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td class=" ps-5 w-25">
+          <button class="btn bg-success">present</button>
+          <button class="btn bg-danger">absent</button>
+          <button class="btn bg-warning">on-leave</button>
+        </td>
+        <td class=" w-25">
+          <button class="btn bg-success">Edit</button>
+          <button class="btn bg-danger">Delete</button>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td class=" ps-5 w-25">
+          <button class="btn bg-success">present</button>
+          <button class="btn bg-danger">absent</button>
+          <button class="btn bg-warning">on-leave</button>
+        </td>
+        <td class=" w-25">
+          <button class="btn bg-success">Edit</button>
+          <button class="btn bg-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
