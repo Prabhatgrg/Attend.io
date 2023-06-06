@@ -42,6 +42,9 @@
       <div class="info">
         <input type="text" placeholder="Student Name" name="studentName">
       </div>
+      <button class="btn bg-success" name>present</button>
+      <button class="btn bg-danger" name>absent</button>
+      <button class="btn bg-warning" name>on-leave</button>
       <button type="submit" class="btn btn-dark" name="add">Add</button>
     </form>
   </div>
