@@ -40,9 +40,9 @@
         </select>
       </div>
       <div class="info">
-        <input type="text" placeholder="Student Name">
+        <input type="text" placeholder="Student Name" name="studentName">
       </div>
-      <button type="submit" class="btn btn-dark">Add</button>
+      <button type="submit" class="btn btn-dark" name="add">Add</button>
     </form>
   </div>
 
@@ -102,7 +102,7 @@
       </tr>
     </tbody>
   </table>
-  
+
   <table class="table table-hover table-striped table-bordered table-dark text-center">
     <h3 class="text-center">Date Goes Here</h3>
     <thead>
