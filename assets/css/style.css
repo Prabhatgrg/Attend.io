@@ -24,7 +24,7 @@
 }
 
 /* Hover Effect for button */
-.btn:hover{
+.btn:hover, .btn:active{
     border: none;
     background: var(--bg-light-blue);
     color: white;

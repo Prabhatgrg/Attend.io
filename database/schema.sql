@@ -15,6 +15,6 @@ CREATE TABLE IF NOT EXISTS attendance(
     student_id INT AUTO_INCREMENT PRIMARY KEY,
     student_name VARCHAR(255) NOT NULL,
     semester VARCHAR(10) NOT NULL,
-    status ENUM('present', 'absent', 'on_leave'),
-    currentDate date NOT NULL DEFAULT CURRENT_DATE()
+    status VARCHAR(255) NOT NULL,
+    currentDate date NOT NULL
 );
