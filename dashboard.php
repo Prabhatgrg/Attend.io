@@ -1,6 +1,7 @@
 <?php
 require_once './database/config.php';
 require_once './backend/attendance.php';
+require_once './backend/functions.php';
 
 session_start() ?>
 
@@ -76,7 +77,7 @@ session_start() ?>
 
   while ($numRows > 0) {
     for ($i = 1; $i <= $numRows; $i++) { ?>
-      <h3 class="text-center"><?php echo getDate()?></h3>
+      <h3 class="text-center"><?php echo retrieveDate()?></h3>
       <table class="table table-dark table-hover text-center">
         <thead>
           <tr>

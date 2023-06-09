@@ -1,13 +1,15 @@
 <?php
 
 require_once './database/config.php';
-function getDate()
+function retrieveDate()
 {
     global $conn;
-    $date = "SELECT currentDate FROM attendance";
-    $execute = mysqli_query($conn, $date);
-    $format = strtotime($execute);
-    $result = date('Y-m-d', $format);
+    // $date = "SELECT DATE(currentDate) FROM attendance";
+    // $result = $date->execute();
+    // return $result;
+    $query = "SELECT currentDate FROM attendance";
+    $execute = mysqli_query($conn, $query);
+    $result = DateTime::createFromFormat('Y-m-d', $execute);
     return $result;
 }
 ?>
