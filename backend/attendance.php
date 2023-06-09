@@ -1,6 +1,6 @@
 <?php
 
-require_once ('../database/config.php');
+require_once ('./database/config.php');
 
 if($_SERVER['REQUEST_METHOD']==="POST"){
 
@@ -9,8 +9,7 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     $semester = $_POST['semester'];
     $status = $_POST['status'];
     $currentDate = date('Y-m-d');
-    // $currentDate = CURRENT_DATE();
-    // $query = "INSERT INTO attendance(student_id, status, currentDate)VALUES()";
+    
     $query = $conn->prepare("INSERT INTO attendance(student_name, semester, status, currentDate)VALUES(?,?,?,?)");
     $query->bind_param("siss", $studentName, $semester, $status, $currentDate);
 

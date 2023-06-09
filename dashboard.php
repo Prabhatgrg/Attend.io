@@ -1,5 +1,7 @@
 <?php
 require_once './database/config.php';
+require_once './backend/attendance.php';
+
 session_start() ?>
 
 <!DOCTYPE html>
@@ -70,10 +72,11 @@ session_start() ?>
   $query = "SELECT * FROM attendance";
   $result = mysqli_query($conn, $query);
   $numRows = mysqli_num_rows($result);
+  // $getDate = getDate();
 
   while ($numRows > 0) {
     for ($i = 1; $i <= $numRows; $i++) { ?>
-      <h3 class="text-center">Date Goes Here</h3>
+      <h3 class="text-center"><?php echo getDate()?></h3>
       <table class="table table-dark table-hover text-center">
         <thead>
           <tr>
