@@ -90,9 +90,7 @@ session_start() ?>
             <td>Mark</td>
             <td>Otto</td>
             <td class=" ps-5 w-25">
-              <button class="btn bg-success">present</button>
-              <button class="btn bg-danger">absent</button>
-              <button class="btn bg-warning">on-leave</button>
+              
             </td>
             <td class=" w-25">
               <button class="btn bg-success">Edit</button>
@@ -104,9 +102,7 @@ session_start() ?>
             <td>Jacob</td>
             <td>Thornton</td>
             <td class=" ps-5 w-25">
-              <button class="btn bg-success">present</button>
-              <button class="btn bg-danger">absent</button>
-              <button class="btn bg-warning">on-leave</button>
+              
             </td>
             <td class=" w-25">
               <button class="btn bg-success">Edit</button>
@@ -118,9 +114,7 @@ session_start() ?>
             <td>Larry</td>
             <td>the Bird</td>
             <td class=" ps-5 w-25">
-              <button class="btn bg-success">present</button>
-              <button class="btn bg-danger">absent</button>
-              <button class="btn bg-warning">on-leave</button>
+              
             </td>
             <td class=" w-25">
               <button class="btn bg-success">Edit</button>
