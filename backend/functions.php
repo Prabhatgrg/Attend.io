@@ -4,12 +4,14 @@ require_once './database/config.php';
 function retrieveDate()
 {
     global $conn;
-    // $date = "SELECT DATE(currentDate) FROM attendance";
-    // $result = $date->execute();
-    // return $result;
-    $query = "SELECT currentDate FROM attendance";
-    $execute = mysqli_query($conn, $query);
-    $result = DateTime::createFromFormat('Y-m-d', $execute);
-    return $result;
+    $stmt = $conn->prepare("SELECT currentDate FROM attendance");
+    if($stmt->execute()){
+        $data = $stmt->get_result();
+        $unformat = $data->fetch_all(MYSQLI_ASSOC);
+    }
+$today_date = date('Y-m-d');
+}
+function getDataByDate($data_result){
+
 }
 ?>
