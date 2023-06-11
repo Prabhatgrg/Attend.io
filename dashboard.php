@@ -77,7 +77,12 @@ session_start() ?>
 
   while ($numRows > 0) {
     for ($i = 1; $i <= $numRows; $i++) { ?>
-      <h3 class="text-center"><?php echo retrieveDate()?></h3>
+      <?php if ($currentDate) : ?>
+        <h1>Current Date: <?php echo $currentDate; ?></h1>
+      <?php else : ?>
+        <h1>No data found!</h1>
+      <?php endif; ?>
+      <!-- <h3 class="text-center"><?php echo $currentDate ?></h3> -->
       <table class="table table-dark table-hover text-center">
         <thead>
           <tr>
@@ -94,7 +99,7 @@ session_start() ?>
             <td>Mark</td>
             <td>Otto</td>
             <td class=" ps-5 w-25">
-              
+
             </td>
             <td class=" w-25">
               <button class="btn bg-success">Edit</button>
@@ -106,7 +111,7 @@ session_start() ?>
             <td>Jacob</td>
             <td>Thornton</td>
             <td class=" ps-5 w-25">
-              
+
             </td>
             <td class=" w-25">
               <button class="btn bg-success">Edit</button>
@@ -118,7 +123,7 @@ session_start() ?>
             <td>Larry</td>
             <td>the Bird</td>
             <td class=" ps-5 w-25">
-              
+
             </td>
             <td class=" w-25">
               <button class="btn bg-success">Edit</button>
