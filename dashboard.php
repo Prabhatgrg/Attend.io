@@ -73,7 +73,6 @@ session_start() ?>
   $query = "SELECT * FROM attendance";
   $result = mysqli_query($conn, $query);
   $numRows = mysqli_num_rows($result);
-  // $getDate = getDate();
 
   while ($numRows > 0) {
     for ($i = 1; $i <= $numRows; $i++) { ?>
