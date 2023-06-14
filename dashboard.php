@@ -42,14 +42,11 @@ session_start() ?>
         <label for="BCA">BCA</label>
         <label for="semester">Semester</label>
         <select name="semester" id="semester">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
+          <option value="SoftwareEngineering">Software Engineering</option>
+          <option value="OperatingSystem">Operating System</option>
+          <option value="DBMS">DBMS</option>
+          <option value="NumericalMethod">Numerical Method</option>
+          <option value="ScriptingLanguage">Scripting Language</option>
         </select>
       </div>
       <div class="info">
@@ -82,7 +79,7 @@ session_start() ?>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
-            <th scope="col">Semester</th>
+            <th scope="col">Subject</th>
             <th scope="col">Status</th>
             <th scope="col">Update</th>
           </tr>
