@@ -40,8 +40,8 @@ session_start() ?>
     <form action="./backend/attendance.php" method="post" class="d-flex gap-4 justify-content-center align-items-center">
       <div class="faculty">
         <label for="BCA">BCA</label>
-        <label for="semester">Semester</label>
-        <select name="semester" id="semester">
+        <label for="subject">Subject</label>
+        <select name="subject" id="subject">
           <option value="SoftwareEngineering">Software Engineering</option>
           <option value="OperatingSystem">Operating System</option>
           <option value="DBMS">DBMS</option>
