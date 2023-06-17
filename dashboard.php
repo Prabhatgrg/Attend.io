@@ -39,7 +39,7 @@ session_start() ?>
   <div class="form-control">
     <form action="./backend/attendance.php" method="post" class="d-flex gap-4 justify-content-center align-items-center">
       <div class="faculty">
-        <label for="BCA">BCA</label>
+        <label for="BCA"><strong>BCA 4th Semester:</strong></label>
         <label for="subject">Subject</label>
         <select name="subject" id="subject">
           <option value="SoftwareEngineering">Software Engineering</option>
