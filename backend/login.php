@@ -16,6 +16,8 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     $username = validate($_POST['username']);
     $password = validate($_POST['password']);
 
+    $message = auth($username, $password);
+
     //Check if credential match with database
     $query = "SELECT * FROM admin WHERE username='$username' AND password='$password'";
     $result = mysqli_query($conn, $query);

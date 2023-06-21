@@ -21,6 +21,8 @@ function check_if_login(){
 function auth($username, $password){
     global $conn;
 
+    $message = [];
+
     $stmt=$conn->prepare("SELECT * FROM admin WHERE username=?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
@@ -28,7 +30,7 @@ function auth($username, $password){
     $result = $stmt->get_result();
 
     if($result->num_rows==0){
-        echo 'Username does not exist' ;
+        $message['username'] = 'Username does not exist' ;
     }else{
         $user=$result->fetch_array(MYSQLI_ASSOC);
         if($user['username']==$username && password_verify($password,$user['password'])){
@@ -36,9 +38,10 @@ function auth($username, $password){
             $_SESSION['username']=$user['username'];
             header('Location: ./dashboard.php');
         }else{
-            echo 'Incorrect username or password';
+            $message['error'] = 'Incorrect username or password';
         }
     }
+    return $message;
 }
 
 // Query to retrieve the current date from the database
