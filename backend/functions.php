@@ -13,7 +13,7 @@ function is_login(){
 
 function check_if_login(){
     if(!is_login()){
-        header('Location: ' . './index.php');
+        header('Location: ' . './login.php');
     }
 }
 

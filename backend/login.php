@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once('../database/config.php');
+require_once '../database/config.php';
 
 //Check form submission
 if($_SERVER['REQUEST_METHOD']==='POST'){

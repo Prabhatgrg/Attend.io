@@ -33,7 +33,7 @@
         </form>
         <div class="mt-3 register-container d-flex">
             <p class="me-2">Already have a account?</p>
-            <a href="./index.php">Click here</a>
+            <a href="./login.php">Click here</a>
         </div>
         <p class="mb-3 text-center">© 2023</p>
     </main>
