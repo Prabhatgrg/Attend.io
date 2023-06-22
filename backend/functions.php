@@ -62,13 +62,13 @@ function retrieveDate(){
     }
 }
 
-function get_student_id($id){
-    global $conn;
+// function get_student_id($id){
+//     global $conn;
     
-    $stmt=$conn->prepare("SELECT * FROM attendance WHERE student_id=?");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
+//     $stmt=$conn->prepare("SELECT * FROM attendance WHERE student_id=?");
+//     $stmt->bind_param("i", $id);
+//     $stmt->execute();
+//     $result = $stmt->get_result();
     
-    return $result;
-}
+//     return $result;
+// }
