@@ -1,7 +1,4 @@
 <?php
-
-require_once './database/config.php';
-
 // User Functions
 function is_login(){
     if(isset($_SESSION['id'])){

@@ -42,11 +42,11 @@ session_start() ?>
         <label for="BCA"><strong>BCA 4th Semester:</strong></label>
         <label for="subject">Subject</label>
         <select name="subject" id="subject">
-          <option value="SoftwareEngineering">Software Engineering</option>
-          <option value="OperatingSystem">Operating System</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Operating System">Operating System</option>
           <option value="DBMS">DBMS</option>
-          <option value="NumericalMethod">Numerical Method</option>
-          <option value="ScriptingLanguage">Scripting Language</option>
+          <option value="Numerical Method">Numerical Method</option>
+          <option value="Scripting Language">Scripting Language</option>
         </select>
       </div>
       <div class="info">
@@ -72,6 +72,8 @@ session_start() ?>
   // $numRows = mysqli_num_rows($result);
   $currentDate = date('Y-m-d');
   // echo $currentDate;
+  // $row = $result->fetch_assoc();
+
   while ($row = $result->fetch_assoc()) {
     if ($currentDate == retrieveDate()) {
 
@@ -94,14 +96,16 @@ session_start() ?>
             <td><?php echo $row['subject'] ?></td>
             <td><?php echo $row['status'] ?></td>
             <td class=" w-25">
-              <button class="btn bg-success">Edit</button>
-              <button class="btn bg-danger">Delete</button>
+              <a href="#" class="btn bg-success">Edit</a>
+              <a href="#" class="btn bg-danger">Delete</a>
+              <!-- <button class="btn bg-success">Edit</button>
+              <button class="btn bg-danger">Delete</button> -->
             </td>
           </tr>
         </tbody>
       </table>
     <?php
-    }else{
+    } else {
     ?>
       <table class="table table-dark table-hover text-center">
         <tbody>
@@ -111,8 +115,8 @@ session_start() ?>
             <td><?php echo $row['subject'] ?></td>
             <td><?php echo $row['status'] ?></td>
             <td class=" w-25">
-              <button class="btn bg-success">Edit</button>
-              <button class="btn bg-danger">Delete</button>
+              <a href="#" class="btn bg-success">Edit</a>
+              <a href="#" class="btn bg-danger">Delete</a>
             </td>
           </tr>
         </tbody>
@@ -121,6 +125,9 @@ session_start() ?>
     }
   }
   ?>
+
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
