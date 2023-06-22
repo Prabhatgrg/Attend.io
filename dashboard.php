@@ -69,66 +69,38 @@ session_start() ?>
   <?php
   $query = "SELECT * FROM attendance";
   $result = mysqli_query($conn, $query);
-  $numRows = mysqli_num_rows($result);
+  // $numRows = mysqli_num_rows($result);
 
-  while ($numRows > 0) {
-    for ($i = 1; $i <= $numRows; $i++) { ?>
-      <h3 class="text-center"><?php echo retrieveDate() ?></h3>
-      <table class="table table-dark table-hover text-center">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Subject</th>
-            <th scope="col">Status</th>
-            <th scope="col">Update</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row"><?php echo $numRows['student_id']?></th>
-            <td><?php echo $numRows['student_name']?></td>
-            <td>Otto</td>
-            <td class=" ps-5 w-25">
+  while ($row = $result->fetch_assoc()) {
 
-            </td>
-            <td class=" w-25">
-              <button class="btn bg-success">Edit</button>
-              <button class="btn bg-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td class=" ps-5 w-25">
-
-            </td>
-            <td class=" w-25">
-              <button class="btn bg-success">Edit</button>
-              <button class="btn bg-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td class=" ps-5 w-25">
-
-            </td>
-            <td class=" w-25">
-              <button class="btn bg-success">Edit</button>
-              <button class="btn bg-danger">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  ?>
+    <h3 class="text-center"><?php echo retrieveDate() ?></h3>
+    <table class="table table-dark table-hover text-center">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Subject</th>
+          <th scope="col">Status</th>
+          <th scope="col">Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"><?php echo $row['student_id'] ?></th>
+          <td><?php echo $row['student_name'] ?></td>
+          <td><?php echo $row['subject'] ?></td>
+          <td><?php echo $row['status'] ?></td>
+          <td class=" w-25">
+            <button class="btn bg-success">Edit</button>
+            <button class="btn bg-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   <?php
-    }
-    break;
-  } ?>
-
-
+  }
+  ?>
   <!-- <table class="table table-hover table-striped table-bordered table-dark text-center">
     <h3 class="text-center">Date Goes Here</h3>
     <thead>
