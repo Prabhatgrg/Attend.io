@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS admin(
 CREATE TABLE IF NOT EXISTS attendance(
     student_id INT AUTO_INCREMENT PRIMARY KEY,
     student_name VARCHAR(255) NOT NULL,
-    semester VARCHAR(10) NOT NULL,
+    subject VARCHAR(100) NOT NULL,
     status VARCHAR(255) NOT NULL,
     currentDate date NOT NULL
 );

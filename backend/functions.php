@@ -61,3 +61,14 @@ function retrieveDate(){
         echo "No data found!";
     }
 }
+
+function get_student_id($id){
+    global $conn;
+    
+    $stmt=$conn->prepare("SELECT * FROM attendance WHERE student_id=?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    return $result;
+}

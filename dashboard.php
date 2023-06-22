@@ -77,7 +77,7 @@ session_start() ?>
       <table class="table table-dark table-hover text-center">
         <thead>
           <tr>
-            <th scope="col">#</th>
+            <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Subject</th>
             <th scope="col">Status</th>
@@ -86,8 +86,8 @@ session_start() ?>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
+            <th scope="row"><?php echo $numRows['student_id']?></th>
+            <td><?php echo $numRows['student_name']?></td>
             <td>Otto</td>
             <td class=" ps-5 w-25">
 
