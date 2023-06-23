@@ -50,7 +50,29 @@ session_start() ?>
         </select>
       </div>
       <div class="info">
-        <input type="text" placeholder="Student Name" name="studentName">
+      <?php
+      $query =$conn->prepare("SELECT * FROM students");
+      $query->execute();
+      $result = $query->get_result();
+
+      $rows = $result->fetch_all(MYSQLI_ASSOC);
+
+      // echo'<pre>';
+      // var_dump($rows);
+      // echo'</pre>';
+      
+
+      if($rows) :
+
+
+      ?>
+        <select name="student_id" id="">
+          <?php foreach($rows as $row) :?>
+          <option value="<?php echo $row['student_id'] ?>"><?php echo $row['name'];?></option>
+          <?php endforeach; ?>
+        </select>
+      <?php endif; ?>
+        <!-- <input type="text" placeholder="Student Name" name="studentName"> -->
       </div>
 
       <input type="radio" class="btn-check" name="status" id="present" value="present" autocomplete="off" checked>
@@ -67,18 +89,21 @@ session_start() ?>
   </div>
 
   <?php
-  $query = "SELECT * FROM attendance ORDER BY currentDate";
-  $result = mysqli_query($conn, $query);
-  // $numRows = mysqli_num_rows($result);
   $currentDate = date('Y-m-d');
+  $query =$conn->prepare("SELECT * FROM attendance WHERE currentDate=?");
+  $query->bind_param("s", $currentDate);
+  $query->execute();
+  
+  $result = $query->get_result();
+
+  // $result = mysqli_query($conn, $query);
+  // $numRows = mysqli_num_rows($result);
   // echo $currentDate;
   // $row = $result->fetch_assoc();
+  $rows = $result->fetch_all(MYSQLI_ASSOC);
 
-  while ($row = $result->fetch_assoc()) {
-    if ($currentDate == retrieveDate()) {
-
-  ?>
-      <h3 class="text-center"><?php echo retrieveDate() ?></h3>
+if ($rows) : ?>
+<h3 class="text-center"><?php echo $currentDate; ?></h3>
       <table class="table table-dark table-hover text-center">
         <thead>
           <tr>
@@ -86,47 +111,36 @@ session_start() ?>
             <th scope="col">Name</th>
             <th scope="col">Subject</th>
             <th scope="col">Status</th>
-            <th scope="col">Update</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
+<?php
+  foreach($rows as $row) :
+  ?>
+      
           <tr>
-            <th scope="row"><?php echo $row['student_id'] ?></th>
-            <td><?php echo $row['student_name'] ?></td>
+            <th scope="row"><?php echo $row['attendance_id'] ?></th>
+            <td><?php echo get_studentnamebyid($row['student_id'])?></td>
             <td><?php echo $row['subject'] ?></td>
             <td><?php echo $row['status'] ?></td>
             <td class=" w-25">
-              <a href="#" class="btn bg-success">Edit</a>
+              <a href="./backend/edit.php?student_id=<?php  echo $row['student_id'] ?>" class="btn bg-success">Edit</a>
               <a href="#" class="btn bg-danger">Delete</a>
               <!-- <button class="btn bg-success">Edit</button>
               <button class="btn bg-danger">Delete</button> -->
             </td>
           </tr>
-        </tbody>
+       
+    <?php
+    endforeach;
+    ?>
+ </tbody>
       </table>
     <?php
-    } else {
-    ?>
-      <table class="table table-dark table-hover text-center">
-        <tbody>
-          <tr>
-            <th scope="row"><?php echo $row['student_id'] ?></th>
-            <td><?php echo $row['student_name'] ?></td>
-            <td><?php echo $row['subject'] ?></td>
-            <td><?php echo $row['status'] ?></td>
-            <td class=" w-25">
-              <a href="#" class="btn bg-success">Edit</a>
-              <a href="#" class="btn bg-danger">Delete</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-  <?php
-    }
-  }
+
+  endif;
   ?>
-
-
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

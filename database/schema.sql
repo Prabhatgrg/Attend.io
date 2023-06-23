@@ -5,16 +5,16 @@ CREATE TABLE IF NOT EXISTS admin(
     password VARCHAR(255) NOT NULL
 );
 
--- CREATE TABLE IF NOT EXISTS students(
---     id INT AUTO_INCREMENT PRIMARY KEY,
---     name VARCHAR(255) NOT NULL, 
---     semester VARCHAR(10) NOT NULL
--- );
+CREATE TABLE IF NOT EXISTS students(
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
 
 CREATE TABLE IF NOT EXISTS attendance(
-    student_id INT AUTO_INCREMENT PRIMARY KEY,
-    student_name VARCHAR(255) NOT NULL,
+    attendance_id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT,
     subject VARCHAR(100) NOT NULL,
     status VARCHAR(255) NOT NULL,
-    currentDate date NOT NULL
+    currentDate date NOT NULL,
+    FOREIGN KEY (student_id) REFERENCES students(student_id)
 );

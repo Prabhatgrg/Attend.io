@@ -69,3 +69,15 @@ function retrieveDate(){
     
 //     return $result;
 // }
+
+function get_studentnamebyid($student_id){
+    global $conn;
+
+    $stmt = $conn->prepare("SELECT name FROM students WHERE student_id=?");
+    $stmt->bind_param("s", $student_id);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    return $result->fetch_array(MYSQLI_ASSOC)['name'];
+    // var_dump($result->fetch_array(MYSQLI_ASSOC));
+}
