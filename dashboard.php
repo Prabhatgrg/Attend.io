@@ -125,8 +125,8 @@ if ($rows) : ?>
             <td><?php echo $row['subject'] ?></td>
             <td><?php echo $row['status'] ?></td>
             <td class=" w-25">
-              <a href="./backend/edit.php?student_id=<?php  echo $row['student_id'] ?>" class="btn bg-success">Edit</a>
-              <a href="#" class="btn bg-danger">Delete</a>
+              <a href="./backend/edit.php?attendance_id=<?php  echo $row['attendance_id'] ?>" class="btn bg-success">Edit</a>
+              <a href="./backend/delete.php?attendance_id=<?php echo $row['attendance_id'] ?>" class="btn bg-danger">Delete</a>
               <!-- <button class="btn bg-success">Edit</button>
               <button class="btn bg-danger">Delete</button> -->
             </td>
