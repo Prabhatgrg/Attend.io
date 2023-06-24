@@ -3,7 +3,13 @@ require_once './database/config.php';
 require_once './backend/attendance.php';
 require_once './backend/functions.php';
 
-session_start() ?>
+session_start();
+
+check_if_login();
+
+// $id = $_SESSION['user']
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">

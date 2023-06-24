@@ -11,6 +11,8 @@ function is_login(){
 function check_if_login(){
     if(!is_login()){
         header('Location: ' . './login.php');
+    }else{
+        header('Location: ../dashboard.php');
     }
 }
 
@@ -31,7 +33,7 @@ function auth($username, $password){
     }else{
         $user=$result->fetch_array(MYSQLI_ASSOC);
         if($user['username']==$username && password_verify($password,$user['password'])){
-            $_SESSION['id']=$user['id'];
+            $_SESSION['user_id']=$user['id'];
             $_SESSION['username']=$user['username'];
             header('Location: ./dashboard.php');
         }else{
