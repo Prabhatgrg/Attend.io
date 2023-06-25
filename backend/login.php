@@ -1,6 +1,7 @@
 <?php
 
 // session_start();
+require_once '../database/config.php';
 require_once '../backend/functions.php';
 
 //Check form submission

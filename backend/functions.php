@@ -51,11 +51,11 @@ function auth($username, $password){
         // }else{
         //     $message['error'] = 'Incorrect username or password';
         // }
-        var_dump($result);
+        // var_dump($result);
         if($user['username'] == $username && $user['password'] == $password){
             $_SESSION['user_id'] = $user['id'];
-            var_dump($_SESSION['user_id']);
-            header('Location:' . get_root_directory() . '/dashboard');
+            // var_dump($_SESSION['user_id']);
+            header('Location: ' . get_root_directory() . '/dashboard');
         }else{
             $message['error'] = "Incorrect username or password";
         }
