@@ -16,6 +16,14 @@ function check_if_login(){
     }
 }
 
+// Validation
+function validate($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 // Authentication
 function auth($username, $password){
     global $conn;
@@ -34,7 +42,7 @@ function auth($username, $password){
         $user=$result->fetch_array(MYSQLI_ASSOC);
         if($user['username']==$username && password_verify($password,$user['password'])){
             $_SESSION['user_id']=$user['id'];
-            $_SESSION['username']=$user['username'];
+            // $_SESSION['username']=$user['username'];
             header('Location: ./dashboard.php');
         }else{
             $message['error'] = 'Incorrect username or password';
