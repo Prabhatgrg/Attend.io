@@ -1,7 +1,7 @@
 <?php
 
 function get_root_directory(): string{
-    return BASEDIR;
+    return '/' . basename(__DIR__);
 }
 
 ?>

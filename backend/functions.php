@@ -11,9 +11,9 @@ function is_login(){
 
 function check_if_login(){
     if(!is_login()){
-        header('Location: ' . './login.php');
+        header('Location:' . get_root_directory() . '/');
     }else{
-        header('Location: ../dashboard.php');
+        header('Location:' . get_root_directory() . '/dashboard');
     }
 }
 
@@ -46,7 +46,8 @@ function auth($username, $password){
         // if($user['username']==$username && password_verify($password,$user['password'])){
         //     $_SESSION['user_id']=$user['id'];
         //     var_dump($_SESSION['user_id']);
-        //     header('Location: ./dashboard.php');
+        //     header('Location:' . get_root_directory() . '/dashboard');
+
         // }else{
         //     $message['error'] = 'Incorrect username or password';
         // }
@@ -54,7 +55,7 @@ function auth($username, $password){
         if($user['username'] == $username && $user['password'] == $password){
             $_SESSION['user_id'] = $user['id'];
             var_dump($_SESSION['user_id']);
-            header('Location: ../dashboard.php');
+            header('Location:' . get_root_directory() . '/dashboard');
         }else{
             $message['error'] = "Incorrect username or password";
         }

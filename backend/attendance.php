@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
 
     if($query->execute()){
         $_SESSION['success'] = "Data Inserted Successfully";
-        header('Location: ../dashboard.php');
+        header('Location:' . get_root_directory() . '/dashboard');
     }else{
         echo 'Error Inserting Data';
     }

@@ -3,7 +3,7 @@ require_once '../database/config.php';
 
 
 if (!isset($_GET['attendance_id'])) {
-    header('Location: ../dashboard.php');
+    header('Location:' . get_root_directory() . '/dashboard');
 }
 
 $attendance_id = $_GET['attendance_id'];
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = $conn->prepare("UPDATE attendance SET status=? WHERE attendance_id=?");
     $stmt->bind_param("si", $status, $attendance_id);
     if ($stmt->execute()) {
-        header('Location: ../dashboard.php');
+        header('Location:' . get_root_directory() . '/dashboard');
     }
 }
 

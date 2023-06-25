@@ -1,9 +1,9 @@
 <?php
 
 $routes = [
-    get_root_directory() . '/' => 'login.php',
-    get_root_directory() . '/register' => 'register.php',
-    get_root_directory() . '/dashboard' => 'dashboard.php'
+    get_root_directory() . '/' => 'frontend/login.php',
+    get_root_directory() . '/register' => 'frontend/register.php',
+    get_root_directory() . '/dashboard' => 'frontend/dashboard.php'
 ];
 
 $path = parse_url($_SERVER['REQUEST_URI'])['path'];
@@ -11,7 +11,7 @@ $path = parse_url($_SERVER['REQUEST_URI'])['path'];
 if(array_key_exists($path, $routes)){
     require $routes[$path];
 }else{
-    require '404.php';
+    require './frontend/404.php';
 }
 
 ?>
