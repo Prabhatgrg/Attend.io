@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <?php echo get_root_directory();?>
     <!-- Login Section -->
     <main class="form-signin d-flex flex-column align-items-center justify-content-center vh-100">
         <form class="w-50 d-flex flex-column gap-3" action="./backend/login.php" method="post">

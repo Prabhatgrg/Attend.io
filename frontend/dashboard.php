@@ -1,9 +1,9 @@
 <?php
-require_once './database/config.php';
-require_once './backend/attendance.php';
-require_once './backend/functions.php';
+require_once '../database/config.php';
+require_once '../backend/attendance.php';
+require_once '../backend/functions.php';
 
-session_start();
+// session_start();
 
 check_if_login();
 

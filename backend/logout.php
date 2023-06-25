@@ -3,6 +3,6 @@
 session_unset();
 session_destroy();
 
-header('Location:' . get_root_directory() . '/');
+header('Location: ' . get_root_directory() . '/');
 
 ?>
