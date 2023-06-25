@@ -1,7 +1,8 @@
 <?php
+
 // User Functions
 function is_login(){
-    if(isset($_SESSION['id'])){
+    if(isset($_SESSION['user_id'])){
         return true;
     }else{
         return false;
@@ -36,16 +37,26 @@ function auth($username, $password){
 
     $result = $stmt->get_result();
 
+    // var_dump($result);
     if($result->num_rows==0){
         $message['username'] = 'Username does not exist' ;
     }else{
         $user=$result->fetch_array(MYSQLI_ASSOC);
-        if($user['username']==$username && password_verify($password,$user['password'])){
-            $_SESSION['user_id']=$user['id'];
-            // $_SESSION['username']=$user['username'];
-            header('Location: ./dashboard.php');
+        // var_dump($user);
+        // if($user['username']==$username && password_verify($password,$user['password'])){
+        //     $_SESSION['user_id']=$user['id'];
+        //     var_dump($_SESSION['user_id']);
+        //     header('Location: ./dashboard.php');
+        // }else{
+        //     $message['error'] = 'Incorrect username or password';
+        // }
+        var_dump($result);
+        if($user['username'] == $username && $user['password'] == $password){
+            $_SESSION['user_id'] = $user['id'];
+            var_dump($_SESSION['user_id']);
+            header('Location: ../dashboard.php');
         }else{
-            $message['error'] = 'Incorrect username or password';
+            $message['error'] = "Incorrect username or password";
         }
     }
     return $message;
