@@ -1,3 +1,4 @@
+<?php echo get_root_directory();?>
 
 <section>
     <div class="container">

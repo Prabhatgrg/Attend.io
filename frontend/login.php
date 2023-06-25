@@ -11,7 +11,6 @@
 </head>
 
 <body>
-    <?php echo get_root_directory();?>
     <!-- Login Section -->
     <main class="form-signin d-flex flex-column align-items-center justify-content-center vh-100">
         <form class="w-50 d-flex flex-column gap-3" action="./backend/login.php" method="post">
@@ -38,9 +37,10 @@
         </form>
         <div class="mt-3 register-container d-flex">
             <p class="me-2">Don't have a account?</p>
-            <a href="./register.php">Click here</a>
+            <a href="<?php echo get_root_directory() . '/register';?>">Click here</a>
+            <!-- <a href='./frontend/register.php'>Click here</a> -->
         </div>
-        <p class="mb-3 text-center">© Copyright 2023</p>
+        <p class="mb-3 text-center">© Copyright 2023. All Rights Reserved.</p>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

@@ -35,7 +35,7 @@
             <p class="me-2">Already have a account?</p>
             <a href="./login.php">Click here</a>
         </div>
-        <p class="mb-3 text-center">© 2023</p>
+        <p class="mb-3 text-center">© Copyright 2023. All Rights Reserved.</p>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
