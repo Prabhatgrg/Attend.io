@@ -33,7 +33,7 @@
         </form>
         <div class="mt-3 register-container d-flex">
             <p class="me-2">Already have a account?</p>
-            <a href="./login.php">Click here</a>
+            <a href="<?php echo get_root_directory();?>/">Click here</a>
         </div>
         <p class="mb-3 text-center">© Copyright 2023. All Rights Reserved.</p>
     </main>

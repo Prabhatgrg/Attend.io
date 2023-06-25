@@ -1,7 +1,5 @@
 <?php
 
-// require_once '../database/config.php';
-require_once 'C:\xampp\htdocs\Attendance-System\database\config.php';
 if($_SERVER['REQUEST_METHOD']==="POST"){
 
     global $conn;

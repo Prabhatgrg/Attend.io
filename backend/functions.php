@@ -1,5 +1,4 @@
 <?php
-
 // User Functions
 function is_login(){
     if(isset($_SESSION['user_id'])){

@@ -1,3 +1,16 @@
+<?php
+
+//Check form submission
+if($_SERVER['REQUEST_METHOD']==='POST'){
+
+    $username = validate($_POST['username']);
+    $password = validate($_POST['password']);
+
+    $message = auth($username, $password);
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +26,7 @@
 <body>
     <!-- Login Section -->
     <main class="form-signin d-flex flex-column align-items-center justify-content-center vh-100">
-        <form class="w-50 d-flex flex-column gap-3" action="./backend/login.php" method="post">
+        <form class="w-50 d-flex flex-column gap-3" method="post">
             <h1 class="h3 mb-3 fw-normal text-center">Attend.io</h1>
             <?php if (isset($message['error'])) : ?>
                 <div class="alert alert-danger" role="alert">
@@ -37,7 +50,7 @@
         </form>
         <div class="mt-3 register-container d-flex">
             <p class="me-2">Don't have a account?</p>
-            <a href="<?php echo get_root_directory() . '/register';?>">Click here</a>
+            <a href="<?php echo get_root_directory(); ?>/register">Click here</a>
             <!-- <a href='./frontend/register.php'>Click here</a> -->
         </div>
         <p class="mb-3 text-center">© Copyright 2023. All Rights Reserved.</p>

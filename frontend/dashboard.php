@@ -1,11 +1,7 @@
 <?php
-require_once '../database/config.php';
-require_once '../backend/attendance.php';
-require_once '../backend/functions.php';
+require './../backend/attendance.php';
 
-// session_start();
-
-check_if_login();
+// check_if_login();
 
 // $id = $_SESSION['user']
 
