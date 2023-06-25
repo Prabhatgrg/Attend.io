@@ -39,7 +39,7 @@
             <p class="me-2">Don't have a account?</p>
             <a href="./register.php">Click here</a>
         </div>
-        <p class="mb-3 text-center">Copyright© 2023</p>
+        <p class="mb-3 text-center">© Copyright 2023</p>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
