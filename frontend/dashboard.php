@@ -109,7 +109,7 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     </form>
   </div>
 
-  <form method="post" class="d-flex gap-4 justify-content-center align-items-center">
+  <form method="post" class="d-flex gap-2 my-2 justify-content-center align-items-center">
     <label for="date">Pick a date:</label>
     <input type="date" id="date" name="date">
     <input type="submit" class="btn btn-dark">
