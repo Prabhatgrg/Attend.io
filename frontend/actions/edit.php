@@ -14,7 +14,7 @@ $stmt->bind_param("i", $attendance_id);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_array(MYSQLI_ASSOC);
-var_dump($row);
+// var_dump($row);
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -26,15 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-// $stmt = $conn->prepare("SELECT status FROM attendance WHERE attendance_id=?");
-
-// $stmt->bind_param("i", $attendance_id);
-// $stmt->execute();
-
-// $result = $stmt->get_result();
-// $row = $result->fetch_array(MYSQLI_ASSOC)['status'];
-// $row = $result->fetch_array(MYSQLI_ASSOC);
-// var_dump($row);
 ?>
 
 <head>
