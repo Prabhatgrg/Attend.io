@@ -1,5 +1,24 @@
 <?php
-require './../backend/attendance.php';
+require './backend/attendance.php';
+
+if($_SERVER['REQUEST_METHOD']==="POST"){
+
+    global $conn;
+    $studentId = $_POST['student_id'];
+    $subject = $_POST['subject'];
+    $status = $_POST['status'];
+    $currentDate = date('Y-m-d');
+    
+    $query = $conn->prepare("INSERT INTO attendance(student_id, subject, status, currentDate)VALUES(?,?,?,?)");
+    $query->bind_param("isss", $studentId, $subject, $status, $currentDate);
+
+    if($query->execute()){
+        $_SESSION['success'] = "Data Inserted Successfully";
+        header('Location: ' . get_root_directory() . '/dashboard');
+    }else{
+        echo 'Error Inserting Data';
+    }
+}
 
 // check_if_login();
 
@@ -23,7 +42,7 @@ require './../backend/attendance.php';
 <body>
   <!-- <h1>Welcome Admin</h1> -->
   <header class="d-flex align-items-center justify-content-between flex-wrap py-3 px-5 mb-4 text-bg-dark border-bottom">
-    <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+    <a href="<?php echo get_root_directory();?>/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
       <span class="fs-4 text-white">Attend.io</span>
     </a>
     <h3 class="text-center">Admin Dashboard</h3>
@@ -39,7 +58,7 @@ require './../backend/attendance.php';
   }
   ?>
   <div class="form-control">
-    <form action="./backend/attendance.php" method="post" class="d-flex gap-4 justify-content-center align-items-center">
+    <form method="post" class="d-flex gap-4 justify-content-center align-items-center">
       <div class="faculty">
         <label for="BCA"><strong>BCA 4th Semester:</strong></label>
         <label for="subject">Subject</label>
