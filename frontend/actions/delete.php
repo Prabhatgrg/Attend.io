@@ -1,7 +1,5 @@
 <?php
 
-require_once '../database/config.php';
-
 if(!isset($_GET['attendance_id'])){
     header('Location: ' . get_root_directory() . '/dashboard');
 }

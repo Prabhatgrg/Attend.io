@@ -1,6 +1,6 @@
 <?php
-require_once '../database/config.php';
 
+global $conn;
 
 if (!isset($_GET['attendance_id'])) {
     header('Location: ' . get_root_directory() . '/dashboard');
@@ -10,6 +10,13 @@ $attendance_id = $_GET['attendance_id'];
 echo $attendance_id;
 
 $stmt = $conn->prepare("SELECT status FROM attendance WHERE attendance_id=?");
+$stmt->bind_param("i", $attendance_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_array(MYSQLI_ASSOC);
+var_dump($row);
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $status = $_POST['status'];
     $stmt = $conn->prepare("UPDATE attendance SET status=? WHERE attendance_id=?");
@@ -19,11 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-$stmt->bind_param("i", $attendance_id);
-$stmt->execute();
+// $stmt = $conn->prepare("SELECT status FROM attendance WHERE attendance_id=?");
 
-$result = $stmt->get_result();
-$row = $result->fetch_array(MYSQLI_ASSOC)['status'];
+// $stmt->bind_param("i", $attendance_id);
+// $stmt->execute();
+
+// $result = $stmt->get_result();
+// $row = $result->fetch_array(MYSQLI_ASSOC)['status'];
 // $row = $result->fetch_array(MYSQLI_ASSOC);
 // var_dump($row);
 ?>
