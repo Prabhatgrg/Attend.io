@@ -109,6 +109,12 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     </form>
   </div>
 
+  <form method="post" class="d-flex gap-4 justify-content-center align-items-center">
+    <label for="date">Pick a date:</label>
+    <input type="date" id="date" name="date">
+    <input type="submit" class="btn btn-dark">
+  </form>
+
   <?php
   $currentDate = date('Y-m-d');
   $query =$conn->prepare("SELECT * FROM attendance WHERE currentDate=?");
