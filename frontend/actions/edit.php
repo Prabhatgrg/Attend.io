@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 
     <div class="form-control">
-        <a href="../dashboard.php" type="button" class="btn btn-success">Back</a>
+        <a href="<?php get_root_directory();?>/dashboard" type="button" class="btn btn-success">Back</a>
         <form method="post" class="d-flex flex-column gap-4 justify-content-center align-items-center">
             <div class="d-flex align-items-center title">
                 <h3>Edit Status for Attendance ID: <?php echo $attendance_id; ?></h3>

@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     <h3 class="text-center">Admin Dashboard</h3>
 
     <ul class="nav nav-pills">
-      <li class="nav-item"><a href="./backend/logout.php" class="nav-link active" aria-current="page">Logout</a></li>
+      <li class="nav-item"><a href="<?php echo get_root_directory();?>/logout" class="nav-link active" aria-current="page">Logout</a></li>
     </ul>
   </header>
   <?php
@@ -108,7 +108,7 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     </form>
   </div>
 
-  <form method="post" class="d-flex gap-2 my-2 justify-content-center align-items-center">
+  <form action="<?php echo get_root_directory()?>/datepicker" method="post" class="d-flex gap-2 my-2 justify-content-center align-items-center">
     <label for="date">Pick a date:</label>
     <input type="date" id="date" name="date">
     <input type="submit" class="btn btn-dark">
