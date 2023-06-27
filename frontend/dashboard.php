@@ -196,9 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
               <td><?php echo $row['status'] ?></td>
               <td class=" w-25">
                 <a href="<?php echo get_root_directory(); ?>/edit?attendance_id=<?php echo $row['attendance_id'] ?>" class="btn bg-success">Edit</a>
-                <a href="<?php echo get_root_directory(); ?>/delete?attendance_id=<?php echo $row['attendance_id'] ?>" class="btn bg-danger">Dalete</a>
-                <!-- <button class="btn bg-success">Edit</button>
-              <button class="btn bg-danger">Delete</button> -->
+                <a href="<?php echo get_root_directory(); ?>/delete?attendance_id=<?php echo $row['attendance_id'] ?>" class="btn bg-danger">Delete</a>
               </td>
             </tr>
 
