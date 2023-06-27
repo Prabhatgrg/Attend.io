@@ -1,22 +1,22 @@
 <?php
 
-if($_SERVER['REQUEST_METHOD']==="POST"){
+if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
-    global $conn;
-    $studentId = $_POST['student_id'];
-    $subject = $_POST['subject'];
-    $status = $_POST['status'];
-    $currentDate = date('Y-m-d');
-    
-    $query = $conn->prepare("INSERT INTO attendance(student_id, subject, status, currentDate)VALUES(?,?,?,?)");
-    $query->bind_param("isss", $studentId, $subject, $status, $currentDate);
+  global $conn;
+  $studentId = $_POST['student_id'];
+  $subject = $_POST['subject'];
+  $status = $_POST['status'];
+  $currentDate = date('Y-m-d');
 
-    if($query->execute()){
-        $_SESSION['success'] = "Data Inserted Successfully";
-        header('Location: ' . get_root_directory() . '/dashboard');
-    }else{
-        echo 'Error Inserting Data';
-    }
+  $query = $conn->prepare("INSERT INTO attendance(student_id, subject, status, currentDate)VALUES(?,?,?,?)");
+  $query->bind_param("isss", $studentId, $subject, $status, $currentDate);
+
+  if ($query->execute()) {
+    $_SESSION['success'] = "Data Inserted Successfully";
+    header('Location: ' . get_root_directory() . '/dashboard');
+  } else {
+    echo 'Error Inserting Data';
+  }
 }
 
 // check_if_login();
@@ -41,13 +41,13 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
 <body>
   <!-- <h1>Welcome Admin</h1> -->
   <header class="d-flex align-items-center justify-content-between flex-wrap py-3 px-5 mb-4 text-bg-dark border-bottom">
-    <a href="<?php echo get_root_directory();?>/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+    <a href="<?php echo get_root_directory(); ?>/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
       <span class="fs-4 text-white">Attend.io</span>
     </a>
     <h3 class="text-center">Admin Dashboard</h3>
 
     <ul class="nav nav-pills">
-      <li class="nav-item"><a href="<?php echo get_root_directory();?>/logout" class="nav-link active" aria-current="page">Logout</a></li>
+      <li class="nav-item"><a href="<?php echo get_root_directory(); ?>/logout" class="nav-link active" aria-current="page">Logout</a></li>
     </ul>
   </header>
   <?php
@@ -70,28 +70,26 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
         </select>
       </div>
       <div class="info">
-      <?php
-      $query =$conn->prepare("SELECT * FROM students");
-      $query->execute();
-      $result = $query->get_result();
+        <?php
+        $query = $conn->prepare("SELECT * FROM students");
+        $query->execute();
+        $result = $query->get_result();
 
-      $rows = $result->fetch_all(MYSQLI_ASSOC);
+        $rows = $result->fetch_all(MYSQLI_ASSOC);
 
-      // echo'<pre>';
-      // var_dump($rows);
-      // echo'</pre>';
-      
+        // echo'<pre>';
+        // var_dump($rows);
+        // echo'</pre>';
 
-      if($rows) :
+        if ($rows) :
 
-
-      ?>
-        <select name="student_id" id="">
-          <?php foreach($rows as $row) :?>
-          <option value="<?php echo $row['student_id'] ?>"><?php echo $row['name'];?></option>
-          <?php endforeach; ?>
-        </select>
-      <?php endif; ?>
+        ?>
+          <select name="student_id" id="">
+            <?php foreach ($rows as $row) : ?>
+              <option value="<?php echo $row['student_id'] ?>"><?php echo $row['name']; ?></option>
+            <?php endforeach; ?>
+          </select>
+        <?php endif; ?>
         <!-- <input type="text" placeholder="Student Name" name="studentName"> -->
       </div>
 
@@ -108,7 +106,7 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     </form>
   </div>
 
-  <form action="<?php echo get_root_directory()?>/datepicker" method="post" class="d-flex gap-2 my-2 justify-content-center align-items-center">
+  <form action="<?php echo get_root_directory() ?>/datepicker" method="post" class="d-flex gap-2 my-2 justify-content-center align-items-center">
     <label for="date">Pick a date:</label>
     <input type="date" id="date" name="date">
     <input type="submit" class="btn btn-dark">
@@ -116,10 +114,10 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
 
   <?php
   $currentDate = date('Y-m-d');
-  $query =$conn->prepare("SELECT * FROM attendance WHERE currentDate=?");
+  $query = $conn->prepare("SELECT * FROM attendance WHERE currentDate=?");
   $query->bind_param("s", $currentDate);
   $query->execute();
-  
+
   $result = $query->get_result();
 
   // $result = mysqli_query($conn, $query);
@@ -128,8 +126,50 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
   // $row = $result->fetch_assoc();
   $rows = $result->fetch_all(MYSQLI_ASSOC);
 
-if ($rows) : ?>
-<h3 class="text-center"><?php echo $currentDate; ?></h3>
+  if ($rows) : ?>
+    <h3 class="text-center"><?php echo $currentDate; ?></h3>
+    <table class="table table-dark table-hover text-center">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Subject</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        foreach ($rows as $row) :
+        ?>
+
+          <tr>
+            <th scope="row"><?php echo $row['attendance_id'] ?></th>
+            <td><?php echo get_studentnamebyid($row['student_id']) ?></td>
+            <td><?php echo $row['subject'] ?></td>
+            <td><?php echo $row['status'] ?></td>
+            <td class=" w-25">
+              <a href="<?php echo get_root_directory(); ?>/edit?attendance_id=<?php echo $row['attendance_id'] ?>" class="btn bg-success">Edit</a>
+              <a href="<?php echo get_root_directory(); ?>/delete?attendance_id=<?php echo $row['attendance_id'] ?>" class="btn bg-danger">Dalete</a>
+              <!-- <button class="btn bg-success">Edit</button>
+              <button class="btn bg-danger">Delete</button> -->
+            </td>
+          </tr>
+
+        <?php
+        endforeach;
+        ?>
+      </tbody>
+    <?php
+  else :
+    $query = $conn->prepare("SELECT * FROM attendance ORDER BY currentDate DESC");
+    $query->execute();
+    // $currentDate = date('Y-m-d');
+    $result = $query->get_result();
+    $rows = $result->fetch_all(MYSQLI_ASSOC);
+    $recentDate = $rows['currentDate'][0];
+    ?>
+      <h3 class="text-center"><?php echo $currentDate; ?></h3>
       <table class="table table-dark table-hover text-center">
         <thead>
           <tr>
@@ -141,34 +181,33 @@ if ($rows) : ?>
           </tr>
         </thead>
         <tbody>
-<?php
-  foreach($rows as $row) :
-  ?>
-      
-          <tr>
-            <th scope="row"><?php echo $row['attendance_id'] ?></th>
-            <td><?php echo get_studentnamebyid($row['student_id'])?></td>
-            <td><?php echo $row['subject'] ?></td>
-            <td><?php echo $row['status'] ?></td>
-            <td class=" w-25">
-              <a href="<?php echo get_root_directory();?>/edit?attendance_id=<?php  echo $row['attendance_id'] ?>" class="btn bg-success">Edit</a>
-              <a href="<?php echo get_root_directory();?>/delete?attendance_id=<?php  echo $row['attendance_id'] ?>" class="btn bg-danger">Dalete</a>
-              <!-- <button class="btn bg-success">Edit</button>
+          <?php
+          foreach ($rows as $row) :
+          ?>
+
+            <tr>
+              <th scope="row"><?php echo $row['attendance_id'] ?></th>
+              <td><?php echo get_studentnamebyid($row['student_id']) ?></td>
+              <td><?php echo $row['subject'] ?></td>
+              <td><?php echo $row['status'] ?></td>
+              <td class=" w-25">
+                <a href="<?php echo get_root_directory(); ?>/edit?attendance_id=<?php echo $row['attendance_id'] ?>" class="btn bg-success">Edit</a>
+                <a href="<?php echo get_root_directory(); ?>/delete?attendance_id=<?php echo $row['attendance_id'] ?>" class="btn bg-danger">Dalete</a>
+                <!-- <button class="btn bg-success">Edit</button>
               <button class="btn bg-danger">Delete</button> -->
-            </td>
-          </tr>
-       
-    <?php
-    endforeach;
-    ?>
- </tbody>
+              </td>
+            </tr>
+
+          <?php
+          endforeach;
+          ?>
       </table>
     <?php
 
   endif;
-  ?>
+    ?>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>
