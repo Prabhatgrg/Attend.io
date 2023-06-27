@@ -167,9 +167,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // $currentDate = date('Y-m-d');
     $result = $query->get_result();
     $rows = $result->fetch_all(MYSQLI_ASSOC);
-    $recentDate = $rows['currentDate'][0];
+    // var_dump($rows);
+    // print_r($rows);
+
+    foreach($rows as $row):
+      $recentDate = $row['currentDate'];
     ?>
-      <h3 class="text-center"><?php echo $currentDate; ?></h3>
+      <h3 class="text-center"><?php echo $recentDate; ?></h3>
       <table class="table table-dark table-hover text-center">
         <thead>
           <tr>
@@ -203,7 +207,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
           ?>
       </table>
     <?php
-
+    endforeach;
   endif;
     ?>
 
