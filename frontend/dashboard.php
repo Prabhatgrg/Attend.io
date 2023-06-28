@@ -113,14 +113,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   </form>
 
   <?php
-  // $query = $conn->prepare("SELECT DISTINCT currentDate FROM attendance");
-  // $result = $query->execute();
-  // print_r($result);
-  // echo '<br>';
-  // $result = $query->get_result();
-  // echo '<br>';
-  // print_r($result);
-  // echo '<br>';
   $row = $result->fetch_all(MYSQLI_ASSOC);
   $query = "SELECT DISTINCT currentDate FROM attendance";
   $result = mysqli_query($conn, $query);
