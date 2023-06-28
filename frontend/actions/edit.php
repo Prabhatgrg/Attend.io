@@ -7,7 +7,7 @@ if (!isset($_GET['attendance_id'])) {
 }
 
 $attendance_id = $_GET['attendance_id'];
-echo $attendance_id;
+// echo $attendance_id;
 
 $stmt = $conn->prepare("SELECT status FROM attendance WHERE attendance_id=?");
 $stmt->bind_param("i", $attendance_id);
@@ -43,9 +43,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             </div>
             <select name="status" id="">
-                <option value="present" <?php if ($row == 'present') echo 'selected'; ?>>present</option>
-                <option value="absent" <?php if ($row == 'absent') echo 'selected'; ?>>absent</option>
-                <option value="on-leave" <?php if ($row == 'on-leave') echo 'selected'; ?>>on-leave</option>
+                <option value="present" <?php if ($row['status'] == 'present') echo 'selected'; ?>>present</option>
+                <option value="absent" <?php if ($row['status'] == 'absent') echo 'selected'; ?>>absent</option>
+                <option value="on-leave" <?php if ($row['status'] == 'on-leave') echo 'selected'; ?>>on-leave</option>
             </select>
             <button type="submit" class="btn btn-dark">Submit</button>
         </form>
