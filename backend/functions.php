@@ -11,8 +11,6 @@ function is_login(){
 function check_if_login(){
     if(!is_login()){
         header('Location: ' . get_root_directory() . '/');
-    }else{
-        header('Location: ' . get_root_directory() . '/dashboard');
     }
 }
 

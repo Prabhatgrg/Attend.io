@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
   }
 }
 
-// check_if_login();
+check_if_login();
 
 // $id = $_SESSION['user']
 
