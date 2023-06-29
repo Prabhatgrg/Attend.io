@@ -1,5 +1,7 @@
 <?php
 
+check_if_login();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     global $conn;
 

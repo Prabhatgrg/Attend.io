@@ -1,5 +1,7 @@
 <?php
 
+check_if_login();
+
 if(!isset($_GET['attendance_id'])){
     header('Location: ' . get_root_directory() . '/dashboard');
 }
