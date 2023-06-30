@@ -12,10 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
     $result = $stmt->get_result();
     $rows = $result->fetch_all(MYSQLI_ASSOC);
-
-    
-    print_r($rows);
-    // echo $row['student_id'];
+    // print_r($rows);
 }
 ?>
 
@@ -30,31 +27,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="<?php echo get_root_directory(); ?>/dashboard" type="button" class="btn btn-success">Back</a>
     </div>
 
-    <h3 class="text-center"><?php echo $date; ?></h3>
-    <table class="table table-dark table-hover text-center">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Subject</th>
-                <th scope="col">Status</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($rows as $row): ?>
+    <?php if ($result->num_rows > 0) : ?>
+        <h3 class="text-center"><?php echo $date; ?></h3>
+        <table class="table table-dark table-hover text-center">
+            <thead>
                 <tr>
-                    <th scope="row"><?php echo $row['attendance_id'] ?></th>
-                    <td><?php echo get_studentnamebyid($row['student_id']) ?></td>
-                    <td><?php echo $row['subject'] ?></td>
-                    <td><?php echo $row['status'] ?></td>
-                    <td class=" w-25">
-                        <a href="<?php echo get_root_directory(); ?>/edit?attendance_id=<?php echo $row['attendance_id'] ?>" class="btn bg-success">Edit</a>
-                        <a href="<?php echo get_root_directory(); ?>/delete?attendance_id=<?php echo $row['attendance_id'] ?>" class="btn bg-danger">Delete</a>
-                    </td>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php foreach ($rows as $row) : ?>
+                    <tr>
+                        <th scope="row"><?php echo $row['attendance_id'] ?></th>
+                        <td><?php echo get_studentnamebyid($row['student_id']) ?></td>
+                        <td><?php echo $row['subject'] ?></td>
+                        <td><?php echo $row['status'] ?></td>
+                        <td class=" w-25">
+                            <a href="<?php echo get_root_directory(); ?>/edit?attendance_id=<?php echo $row['attendance_id'] ?>" class="btn bg-success">Edit</a>
+                            <a href="<?php echo get_root_directory(); ?>/delete?attendance_id=<?php echo $row['attendance_id'] ?>" class="btn bg-danger">Delete</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php else :
+        // $_SESSION['message'] = 'No match found';
+        $message = 'No match found';
+        header('Location: ' . get_root_directory() . '/dashboard?message=' . urlencode($message));
+    ?>
+    <?php endif; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

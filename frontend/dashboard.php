@@ -1,5 +1,10 @@
 <?php
 
+if(isset($_GET['message'])){
+  $message = $_GET['message'];
+  echo '<script>alert("' . $message . '");</script>';
+}
+
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
   global $conn;
