@@ -6,7 +6,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     global $conn;
 
     $date = $_POST['date'];
+    $year = date('Y', strtotime($date));
+    $month = date('n', strtotime($date));
+    $day = date('j', strtotime($date));
     echo $date;
+    echo '<br>';
+    echo $month;
+    echo '<br>';
+    echo $day;
+    echo '<br>';
+    echo $year;
 }
 
 ?>
