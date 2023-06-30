@@ -8,7 +8,7 @@ $routes = [
     get_root_directory() . '/attendance' => 'backend/attendance.php',
     get_root_directory() . '/delete' => 'frontend/actions/delete.php',
     get_root_directory() . '/edit' => 'frontend/actions/edit.php',
-    get_root_directory() . '/datepicker' => 'frontend/actions/datepicker.php',
+    get_root_directory() . '/result' => 'frontend/actions/result.php',
     get_root_directory() . '/logout' => 'frontend/actions/logout.php',
 ];
 

@@ -21,8 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 check_if_login();
 
-// $id = $_SESSION['user']
-
 ?>
 
 <!DOCTYPE html>
@@ -106,7 +104,7 @@ check_if_login();
     </form>
   </div>
 
-  <form action="<?php echo get_root_directory(); ?>/datepicker" method="post" class="d-flex gap-2 my-2 justify-content-center align-items-center">
+  <form action="<?php echo get_root_directory(); ?>/result" method="post" class="d-flex gap-2 my-2 justify-content-center align-items-center">
     <label for="date">Pick a date:</label>
     <input type="date" id="date" name="date">
     <input type="submit" class="btn btn-dark">
@@ -118,46 +116,46 @@ check_if_login();
   $result = mysqli_query($conn, $query);
   $currentDate = array();
 
-  while($row = mysqli_fetch_assoc($result)){
+  while ($row = mysqli_fetch_assoc($result)) {
     $currentDates[] = $row['currentDate'];
   }
 
   $query = $conn->prepare("SELECT * FROM attendance WHERE currentDate = ?");
 
-  foreach($currentDates as $currentDate):
+  foreach ($currentDates as $currentDate) :
     $query->bind_param("s", $currentDate);
     $query->execute();
     $result = $query->get_result();
 
-    ?>
+  ?>
     <h3 class="text-center"><?php echo $currentDate; ?></h3>
-      <table class="table table-dark table-hover text-center">
-        <thead>
+    <table class="table table-dark table-hover text-center">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Subject</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php while ($row = $result->fetch_assoc()) { ?>
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Subject</th>
-            <th scope="col">Status</th>
-            <th scope="col">Action</th>
+            <th scope="row"><?php echo $row['attendance_id'] ?></th>
+            <td><?php echo get_studentnamebyid($row['student_id']) ?></td>
+            <td><?php echo $row['subject'] ?></td>
+            <td><?php echo $row['status'] ?></td>
+            <td class=" w-25">
+              <a href="<?php echo get_root_directory(); ?>/edit?attendance_id=<?php echo $row['attendance_id'] ?>" class="btn bg-success">Edit</a>
+              <a href="<?php echo get_root_directory(); ?>/delete?attendance_id=<?php echo $row['attendance_id'] ?>" class="btn bg-danger">Delete</a>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          <?php while($row = $result->fetch_assoc()){?>
-            <tr>
-              <th scope="row"><?php echo $row['attendance_id'] ?></th>
-              <td><?php echo get_studentnamebyid($row['student_id']) ?></td>
-              <td><?php echo $row['subject'] ?></td>
-              <td><?php echo $row['status'] ?></td>
-              <td class=" w-25">
-                <a href="<?php echo get_root_directory(); ?>/edit?attendance_id=<?php echo $row['attendance_id'] ?>" class="btn bg-success">Edit</a>
-                <a href="<?php echo get_root_directory(); ?>/delete?attendance_id=<?php echo $row['attendance_id'] ?>" class="btn bg-danger">Delete</a>
-              </td>
-            </tr>
-            <?php }?>
-        </tbody>
-      </table>
-  <?php endforeach;?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <?php } ?>
+      </tbody>
+    </table>
+  <?php endforeach; ?>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>
