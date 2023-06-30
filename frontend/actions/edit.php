@@ -11,7 +11,6 @@ if (!isset($_GET['attendance_id'])) {
 $attendance_id = $_GET['attendance_id'];
 // echo $attendance_id;
 
-echo "This works??";
 $stmt = $conn->prepare("SELECT status FROM attendance WHERE attendance_id=?");
 $stmt->bind_param("i", $attendance_id);
 $stmt->execute();
